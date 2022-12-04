@@ -16,7 +16,7 @@ header, footer{
     align-items: center;
     background: #e9e3e9;
 }
-header > #buttonEl{
+header > #buttonParent{
     margin-bottom: 1rem;
 }
 #startGame{
@@ -26,6 +26,18 @@ header > #buttonEl{
     box-shadow: 0 0 10px #a19898 inset;
     border-radius: 15%;
     border: none;
+}
+#startGame:hover{
+    background-color: none;
+    color: #333333;
+}
+#startGame:active{
+    font-size: 90%;
+    box-shadow: 10 10 grey inset;
+}
+#startGame:focus{
+    outline: none;
+    border: #8ac4ff;
 }
 main{
     background: #e9e3e3;
