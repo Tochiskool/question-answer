@@ -16,6 +16,17 @@ header, footer{
     align-items: center;
     background: #e9e3e9;
 }
+header > #buttonEl{
+    margin-bottom: 1rem;
+}
+#startGame{
+    padding: .5rem;
+    background-color: black;
+    color:#eff0f1;
+    box-shadow: 0 0 10px #a19898 inset;
+    border-radius: 15%;
+    border: none;
+}
 main{
     background: #e9e3e3;
 }
