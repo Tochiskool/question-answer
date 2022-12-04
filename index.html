@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./CSS/reset.css">
+    <link rel="stylesheet" href="./CSS/style.css">
     <title>Entrance quiz to coding</title>
 </head>
 
@@ -12,9 +14,24 @@
     <header>
         <h1>Welcome <span id="yourName"></span> in our coding quiz</h1>
         <p>This is a time based quiz which will get you into our loop or boot you out upon successful completion of the
-            quiz</p>
-    </header>
+            quiz <span id="timer"></span></p>
 
+    </header>
+    <main>
+        <section>
+            <div>
+                <h1 id="question"></h1>
+
+            </div>
+            <div>
+                <ul id="answerList"></ul>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <h1>&copy;@Tochiskool 2022</h1>
+    </footer>
+    <script src="./Script/app.js"></script>
 </body>
 
 </html>
