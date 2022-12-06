@@ -8,6 +8,7 @@ html,body{
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: 100%;
     line-height: 1.5;
+    background: #e9e3e3;
     color:#333333;
 }
 header, footer{
@@ -16,51 +17,84 @@ header, footer{
     align-items: center;
     background: #e9e3e9;
 }
-header > #buttonParent{
-    margin-bottom: 1rem;
+main{
+    background: #e9e3e3;
 }
-#startGame{
-    padding: .5rem;
-    background-color: black;
-    color:#eff0f1;
-    box-shadow: 0 0 10px #a19898 inset;
-    border-radius: 15%;
+
+#container{
+    display:flex;
+    flex: 1 0 6rem;
+    flex-direction: column;
+    align-items: center;
+    margin: 1rem 0 1rem 0;
+    
+}
+#container > header{
+    padding: 1rem;
+    color: #d48b8b;
+    border-radius: 5%;
+}
+input{
+    background-color: #e9e3e9;
     border: none;
+    margin-bottom: 2rem;
 }
-#startGame:hover{
-    background-color: none;
-    color: #333333;
-}
-#startGame:active{
-    font-size: 90%;
-    box-shadow: 10 10 grey inset;
-}
-#startGame:focus{
-    outline: none;
-    border: #8ac4ff;
-}
-main{
-    background: #e9e3e3;
+::placeholder{
+    color: #d48b8b;
+    font-style: italic;
+    text-transform: uppercase;
+    text-align: center;
 }
 
-*,*::after,*::before{
-    box-sizing: border-box;
+input:hover{
+    background-color:#ffffff;
+    color: #d48b8b;
 }
-
-html,body{
-    margin: 0;
-    padding:0;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+input::active{
     font-size: 100%;
-    line-height: 1.5;
-    color:#333333;
+    box-shadow: 0 0 .75rem;
 }
-header, footer{
+input:focus{
+    outline: none;
+    border-color: #8ac4ff;
+}
+/* Button Section */
+#buttonSection{
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
-    background: #e9e3e9;
+    height: 100vh;
 }
-main{
-    background: #e9e3e3;
+/* Style button */
+#buttonEl{
+    display: inline-block;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    background-image: none;
+    border: 0.1rem solid transparent;
+    cursor: pointer;
+    text-decoration: none;
+    padding: .65rem 1.75rem;
+    font-size: 1.313rem;
+    font-weight: bold;
+    border-radius: .4rem;
+    background: #d48b8b;
+    border-color: #e9e3e9;
+    color: #ffffff;
+}
+#buttonEl:hover{
+    background: none;
+    border-color: #ffff;
+    text-decoration: none;
+    transition: all 0.3s ease 0s;
+}
+#buttonEl:active{
+box-shadow: 0 0 .75rem #e9e3e3 inset;
+font-size: 100%;
+}
+#button:focus{
+outline: none;
+border-color: #8ac4ff;
 }
