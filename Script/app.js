@@ -1,22 +1,37 @@
 console.log('var the game creation begin')
 
 // //Get all elements
-// var player = document.querySelector('#yourName');
-// var time = document.querySelector('#timer');
-// var startGame = document.querySelector('#startGame');
-// var domande = document.querySelector('#question');
-// var answers = document.querySelector('#answerlist');
+//var player = document.querySelector('#yourName');
+//var time = document.querySelector('#timer');
+//var startGame = document.querySelector('#startGame');
+//var domande = document.querySelector('#question');
+//var answers = document.querySelector('#answerlist');
 
 //Call function onload of windows
 window.onload = function () {
+    //Setvariables
+    
+    var timeCounter = 0;
+    var changeQuestion = 0;
+    var interval;
+      //Get and create elements
+    var container = document.querySelector('#container');
+    //Timer elemnt
+    var timeEl = document.querySelector('#timeMachine');
+
+    var header = document.createElement('header');
+    var h1 = document.createElement('h1');
+    //Game start button
+    var gameButton = document.createElement('button');
     var buttonParent = document.querySelector('#buttonSection');
-    var button = document.createElement('button');
+    var timeButton = document.createElement('button');//play game button
+    var button = document.createElement('button');//enter game button
     var input = document.createElement('input');
     button.textContent = `Start Game`
-    button.setAttribute('id', 'buttonEl');
+    button.setAttribute('class', 'buttonEl');
     input.setAttribute('id', 'name');
      //Get input value 
-    var name = input.value;
+//    var name = input.value;
       //set placeholder in input element
     input.placeholder = `Enter name`;
     buttonParent.append(input)
@@ -25,35 +40,57 @@ window.onload = function () {
     
 document.querySelector('button').addEventListener('click', function (e) {
     e.preventDefault();
-    //Get and create elements
-    var container = document.querySelector('#container');
-    var header = document.createElement('header');
-    var h1 = document.createElement('h1'); 
 
+    gameButton.setAttribute('class', 'buttonEl');
+    gameButton.setAttribute('id', 'playGame');
 
     // Input Element created dynamically.
-    var input1 = document.querySelector('input');
-    var realName = input1.value;
+   var input1 = document.querySelector('input');
+   var realName = input1.value;
     console.log(input1.id, realName ,input1)
    
     h1.textContent = `Thanks for taking out coding quiz game ${realName}`;
+    gameButton.textContent = `Play game now ${realName}`;
     header.append(h1);
-    
+    header.append(gameButton)
+    timeButton.textContent = `Start game Now ${realName}`;
+    buttonParent.append(timeButton);
     //take it off page
     buttonParent.style.display = "none"; 
-    
+   
    //Append elements in container element;
     container.append(header);
+
+    //Tell user to input a valid name
     if (realName === "") {
-        return h1.textContent = `Please enter a valid name`;;
+        gameButton.style.display = 'none';
+        return h1.textContent = `Please enter a valid name`;
     }
 
-    
 })
+gameButton.addEventListener('click', function (e) {
+    e.preventDefault()
+    console.log('Button is working')
+    //Take button off on click to start game
+    gameButton.style.display = 'none';
+    interval = setInterval(function () {
+        // timeCounter++;
+        timeEl.textContent = `00:${timeCounter++}`;
+        //Clear interval
+        if (timeCounter === 5) {
+            changeQuestion++;
+            setQuestionsAnswer();
+            clearInterval(interval)
+             }
+     }, 1000);
+  
+    })
 
 }
 
-
+function setQuestionsAnswer() {
+    console.log('Question 1')
+}
 //quiz questions
 var questions = [
     {

@@ -67,7 +67,7 @@ input:focus{
     height: 100vh;
 }
 /* Style button */
-#buttonEl{
+.buttonEl{
     display: inline-block;
     text-align: center;
     white-space: nowrap;
@@ -84,17 +84,24 @@ input:focus{
     border-color: #e9e3e9;
     color: #ffffff;
 }
-#buttonEl:hover{
+.buttonEl:hover{
     background: none;
     border-color: #ffff;
     text-decoration: none;
     transition: all 0.3s ease 0s;
 }
-#buttonEl:active{
+.buttonEl:active{
 box-shadow: 0 0 .75rem #e9e3e3 inset;
 font-size: 100%;
 }
-#button:focus{
+.button:focus{
 outline: none;
 border-color: #8ac4ff;
+}
+
+/* Time element */
+#timeMachine{
+    display: flex;
+    justify-content: center;
+    color: #d48b8b;
 }
