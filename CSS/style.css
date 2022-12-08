@@ -100,8 +100,15 @@ border-color: #8ac4ff;
 }
 
 /* Time element */
-#timeMachine{
+#timeMachine, #question{
     display: flex;
     justify-content: center;
+    color: #d48b8b;
+}
+#answerList{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     color: #d48b8b;
 }
