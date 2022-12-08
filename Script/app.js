@@ -1,11 +1,5 @@
 console.log('var the game creation begin')
 
-// //Get all elements
-//var player = document.querySelector('#yourName');
-//var time = document.querySelector('#timer');
-//var startGame = document.querySelector('#startGame');
-//var domande = document.querySelector('#question');
-//var answers = document.querySelector('#answerlist');
 
 //Call function onload of windows
 window.onload = function () {
@@ -75,29 +69,28 @@ gameButton.addEventListener('click', function (e) {
     console.log('Button is working')
     //Take button off on click to start game
     gameButton.style.display = 'none';
-    interval = setInterval(function () {
-        // timeCounter++;
-        timeEl.textContent = `00:${timeCounter++}`;
-        //Clear interval
-        if (timeCounter === 2) {
-            // changeQuestion++;
-            setQuestionsAnswer();
-            clearInterval(interval)
-             }
-     }, 1000);
-  
+    setQuestionsAnswer();
     })
 
     function setQuestionsAnswer() {
         console.log('Question 1')
         // var count = 0;
+      
         var ask = document.querySelector('#question');
        
-        var questionsNow = Math.floor(Math.random() * questions.length)
-        console.log(questionsNow)
-        ask.textContent = questions[questionsNow].title;
+        randomQuestion()
+          //Get the time working
+          interval = setInterval(function () {
+            timeCounter++;
+            timeEl.textContent = `00:${timeCounter}`
+              if (timeCounter === 5) {
+                randomQuestion();
+                clearInterval(interval)
+            }
+        },1000)
+        ask.textContent = questions[randomQuestion()].title;
 
-        ansList = questions[questionsNow].choices;
+        ansList = questions[randomQuestion()].choices;
         console.log(ansList)
 
         for (var i = 0; i < ansList.length; i++){
@@ -109,6 +102,12 @@ gameButton.addEventListener('click', function (e) {
         }
 
     }
+        //Call random questions
+        function randomQuestion() {
+            var questionsNow = Math.floor(Math.random() * questions.length)
+            console.log(questionsNow)
+            return questionsNow;
+        }
 }
 
 
