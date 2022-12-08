@@ -19,6 +19,8 @@ window.onload = function () {
     //Timer elemnt
     var timeEl = document.querySelector('#timeMachine');
 
+    var answerGround = document.querySelector('#answerList');
+
     var header = document.createElement('header');
     var h1 = document.createElement('h1');
     //Game start button
@@ -77,8 +79,8 @@ gameButton.addEventListener('click', function (e) {
         // timeCounter++;
         timeEl.textContent = `00:${timeCounter++}`;
         //Clear interval
-        if (timeCounter === 5) {
-            changeQuestion++;
+        if (timeCounter === 2) {
+            // changeQuestion++;
             setQuestionsAnswer();
             clearInterval(interval)
              }
@@ -86,77 +88,97 @@ gameButton.addEventListener('click', function (e) {
   
     })
 
+    function setQuestionsAnswer() {
+        console.log('Question 1')
+        // var count = 0;
+        var ask = document.querySelector('#question');
+       
+        var questionsNow = Math.floor(Math.random() * questions.length)
+        console.log(questionsNow)
+        ask.textContent = questions[questionsNow].title;
+
+        ansList = questions[questionsNow].choices;
+        console.log(ansList)
+
+        for (var i = 0; i < ansList.length; i++){
+            console.log(ansList[i])
+            var li = document.createElement('li');
+            li.innerHTML += `${ansList[i]} <br>`
+            answerGround.append(li);
+
+        }
+
+    }
 }
 
-function setQuestionsAnswer() {
-    console.log('Question 1')
-}
+
+
 //quiz questions
 var questions = [
     {
-        title: "The beaver is the national emblem of which country?",
-        choices: ["Canada", "Mexico", "Spain", "Peru"],
-        answer: "Canada"
+        title: "Which is the best country in Africa?",
+        choices: ["Egypt", "Cameroon", "Morocco", "Nigeria"],
+        answer: "Cameroon"
     },
     {
-        title: "In which movie did Humphrey Bogart play Charlie Allnut?",
-        choices: ["It's a Wonderful Life", "Little Miss Sunshine", "African Queen", "Jaws"],
-        answer: "African Queen"
+        title: "Who is the president of the Cameroon football federation?",
+        choices: ["Tochiskool", "Samuel Eto'o ", "Mila Roger", "Aboubae Vincent"],
+        answer: "Samuel Eto'o"
     },
     {
-        title: "Which singer’s real name is Stefani Joanne Angelina Germanotta?",
-        choices: ["Cher", "Lady Gaga", "Madonna", "Christina Aguilera"],
-        answer: "Lady Gaga"
+        title: "Highest African goal scorer in the AfCOM?",
+        choices: ["Eto'o Fils", "Kanu Nwanko", "George Wehya", "Aboubae Vincent"],
+        answer: "Aboubae Vincent"
     },
     {
-        title: "How many players are there in a baseball team?",
-        choices: ["Twelve", "Six", "Eleven", "Nine"],
-        answer: "Nine"
+        title: "Who is the next president of Cameroon?",
+        choices: ["Tochiskool of Italy", "Paul Biya again", "Kawala Muna", "Fosung Divine"],
+        answer: "Tochiskool of Italy"
     },
     {
-        title: "Which TV show said, “Live long and prosper”?",
-        choices: ["Star Wars", "Star Treck", "Seinfeld", "Cheers"],
+        title: "who is Camaeroon's next best future 9 shirted player of Cameroon”?",
+        choices: ["Tita Jake", "Rudy Ngwa", "Abaela Joel", "Aziz Rudar"],
         answer: "Star Treck"
     },
     {
-        title: "What kind of person shall not be honored on a US postal stamp, according to the US postal service and the Citizen’s Stamp Advisory Commitee?",
+        title: "Who do you wanna be in love with right here right now?",
         choices: ["A living person", "A dead person", "Any person", "A foreign person"],
         answer: "A living person"
     },
     {
-        title: "What is the name of Batman’s butler?",
-        choices: ["Geeves", "Frederick", "Alf", "Alfred"],
+        title: "When is Tochiskool's birthday?",
+        choices: ["31's of March", "17th of May", "15th of June", "16th of September"],
         answer: "Alfred"
     },
     {
-        title: "The average human body contains how many pints of blood?",
-        choices: ["Eight", "Nine", "Ten", "Eleven"],
-        answer: "Nine"
+        title: "Who abandons her children with mean grand parents?",
+        choices: ["A mean mother", "A senseless mother", "An empty head woman", "A cheap woman", "All of the above"],
+        answer: "All of the above"
     },
     {
-        title: "Which US state is nearest to the old Soviet Union?",
-        choices: ["Ohio", "New Hampshire", "Alaska", "Hawaii"],
-        answer: "Alaska"
+        title: "Where was Amalia born?",
+        choices: ["Ohio", "Limbe", "Alaska", "Hawaii"],
+        answer: "Limbe"
     },
     {
-        title: "In which city is Jim Morrison buried?",
-        choices: ["Tokyo", "London", "Paris", "New York"],
-        answer: "Paris"
+        title: "Where was Tita Jake born",
+        choices: ["Tokyo", "London", "Trieste", "New York"],
+        answer: "Trieste"
     },
     {
-        title: "Hg is the chemical symbol of which element?",
-        choices: ["Mercury", "Hyglorine", "Lead", "Hydrogen"],
+        title: "Who do you know that sabi waka lie pass all?",
+        choices: ["The Ndi's ", "The Ngwa's", "The Zazuze", "The Lokomida"],
         answer: "Mercury"
     },
     {
-        title: "The Pyrenees mountain range separates which two European countries?",
-        choices: ["Germany and Poland", "France and Spain", "Spain and Ireland", "US and Canada"],
-        answer: "France and Spain"
+        title: "If there is so much cold with who do you want to be?",
+        choices: ["Divine de Massacheusette", "Tochiskool of Italy", " Jazy of Bende", "Nello of London"],
+        answer: "Jazy of Bende"
     },
     {
-        title: "Which movie features the song Ding Dong The Witch Is Dead?",
-        choices: ["Alice in Wonderland", "Wizard of Oz", "The Lion King", "The Matrix"],
-        answer: "Wizard of Oz"
+        title: "Who is 2022's current president of USAS?",
+        choices: ["Awemu Ama", "Donald J Trump", "Sleepy Joe Biden", "Kim Trumps Friend"],
+        answer: "Donald J Trump"
     },
     {
         title: "In Fahrenheit, at what temperature does water freeze?",
@@ -164,9 +186,9 @@ var questions = [
         answer: "32"
     },
     {
-        title: "What is Chandler’s last name in the sitcom Friends?",
-        choices: ["Bang", "Bong", "Bung", "Bing"],
-        answer: "Bing"
+        title: "Who is the most wash waka turn turn man you know ?",
+        choices: ["Nukila Bravo", "Bongo Jesly", "Rororo Etong", "Blinko Hamburk"],
+        answer: "Nukila Bravo"
     },
 ]
 
